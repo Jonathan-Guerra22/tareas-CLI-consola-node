@@ -30,7 +30,10 @@ const main = async () => {
 
             case '1':
                 const desc = await leerInput('Descripción: ');
-                tareas.crearTarea(desc)
+                const ok = await confirmar('¿Esta seguro de querer crear la tarea?')
+                if ( ok){
+                    tareas.crearTarea(desc)
+                }
                 break;
 
             case '2':    
@@ -47,7 +50,7 @@ const main = async () => {
 
             case '5':
                 const ids = await mostrarListadoCheckList(tareas.listadoArr);
-                
+                tareas.toggleCompletadas(ids);
                 break;
 
             case '6':    
