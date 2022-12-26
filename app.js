@@ -2,7 +2,7 @@ require('colors')
 
 const { default: inquirer } = require('inquirer');
 const { guardarDB, leerDB } = require('./helpers/guardarArchivo');
-const { inquirerMenu, pausa, leerInput, listadoTareasBorrar, confirmar } = require('./helpers/inquirers');
+const { inquirerMenu, pausa, leerInput, listadoTareasBorrar, confirmar, mostrarListadoCheckList } = require('./helpers/inquirers');
 const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
 
@@ -46,6 +46,8 @@ const main = async () => {
                 break;
 
             case '5':
+                const ids = await mostrarListadoCheckList(tareas.listadoArr);
+                
                 break;
 
             case '6':    
